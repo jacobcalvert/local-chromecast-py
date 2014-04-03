@@ -1,0 +1,53 @@
+body
+{
+	background:#000;
+	margin:0;
+}
+#container
+{
+	width:900px;
+	height:100%;
+	padding:0;
+	margin:auto;
+	border: -1px solid #FFF;
+		
+}
+#quickmenu
+{
+	width:100%;
+	height:200px;
+	position:fixed;
+	bottom:-180px;
+	background:#FFF;
+	z-index:1000;
+	
+}
+#quickmenu textarea
+{
+	background:transparent;
+	float:left;
+	width:350px;
+	height:100%;
+	color:black;
+	overflow:auto;
+	resize: none;
+	border:none;
+}
+#quickmenu #close_qm
+{
+	float:right;
+	height:20px;
+}
+#quickmenu #open_qm
+{
+	float:right;
+	height:20px;
+}
+.media_item
+{
+	margin:1px;
+	width:223px;
+	height:223px;
+	float:left;
+	background:#FFF;
+}
