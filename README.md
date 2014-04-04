@@ -32,9 +32,9 @@ The javascript portion basically handles the talk between the Cast API and the s
 How to Use it?
 ====================================
 
-1) install Tornado -> http://www.tornadoweb.org/en/stable/
-2) run 'python Server.py'
-3) open browser to http://localhost:8022/index.html, your media (if you have any) will be loaded
-5) start a chromecast session from the google cast extension
-6) select your media, your chromecast will look like it's loading something
-7) click play!
+* install Tornado -> http://www.tornadoweb.org/en/stable/
+* run 'python Server.py'
+* open browser to http://localhost:8022/index.html, your media (if you have any) will be loaded
+* start a chromecast session from the google cast extension
+* select your media, your chromecast will look like it's loading something
+* click play!
