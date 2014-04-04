@@ -27,6 +27,11 @@ function onMediaStoreChange()
  		o = localcast.media_store.audio[i];
  		dom += "<div class='media_item' id='"+o.id+"'><img src='"+o.meta.thumbnail+"'/><div class='media_title'>"+o.title+"</div></div>";
  	};
+ 	for(i = 0; i < localcast.media_store.image.length; i++)
+ 	{
+ 		o = localcast.media_store.image[i];
+ 		dom += "<div class='media_item' id='"+o.id+"'><img src='"+o.meta.thumbnail+"'/><div class='media_title'>"+o.title+"</div></div>";
+ 	};
 	$("#media_pane").append(dom);
 	rebind_handlers();
 };

@@ -55,7 +55,8 @@ class MediaComponent:
 
     MEDIA_STORE = {
         "AUDIO": [],
-        "VIDEO": []
+        "VIDEO": [],
+        "IMAGE": []
     }
     mimetypes.init()
 
@@ -80,6 +81,16 @@ class MediaComponent:
                         t = Enums.MediaType.AUDIO
                         mo = MediaObject(filepath, Enums.MediaType.AUDIO, mime[0], self.generate_meta(filepath, t))
                         self.MEDIA_STORE["AUDIO"].append(mo)
+        for root, subFolders, files in os.walk(Enums.Config.Paths.IMAGE):
+            for f in files:
+                filepath = os.path.join(root, f)
+                for ext in Enums.MediaType.Extensions.IMAGE:
+                    if filepath.endswith(ext):
+                        filepath = Enums.Config.Server.LAN_WEB_ADDR_PREFIX + filepath
+                        mime = mimetypes.guess_type(filepath)
+                        t = Enums.MediaType.IMAGE
+                        mo = MediaObject(filepath, Enums.MediaType.AUDIO, mime[0], self.generate_meta(filepath, t))
+                        self.MEDIA_STORE["IMAGE"].append(mo)
 
 
 
@@ -89,7 +100,7 @@ class MediaComponent:
         filename = filename[0:i]
         meta_obj = {
             "file_name": filename,
-            "thumbnail": Enums.MediaType.DEFAULT_ICONS[type],
+            "thumbnail": file_path if type == Enums.MediaType.IMAGE else Enums.MediaType.DEFAULT_ICONS[type],
             "length": None
         }
         return meta_obj  # TODO: eventually I want this to grab a thumbnail, base64 encode it and other meta info
@@ -102,6 +113,11 @@ class MediaComponent:
 
     def get_audio_objects(self):
         obj = self.MEDIA_STORE["AUDIO"]
+        objs = [o.to_dict() for o in obj]
+        return objs
+
+    def get_image_objects(self):
+        obj = self.MEDIA_STORE["IMAGE"]
         objs = [o.to_dict() for o in obj]
         return objs
 

@@ -28,7 +28,7 @@ class WSCommChannel(tornado.websocket.WebSocketHandler):
                 "reply_type": "load_library",
                 "video": media_comp.get_video_objects(),
                 "audio": media_comp.get_audio_objects(),
-                "image": []
+                "image": media_comp.get_image_objects()
             }
             print obj
             self.write_message(json.dumps(obj))

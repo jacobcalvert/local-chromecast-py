@@ -16,7 +16,7 @@ finagle it a bit at first. I'll mark the partial support with a (*)
 * OGG streaming
 * Other audio formats
 * Other Video Formats
-
+* JPG (*)
 
 Images work, but I have no hook into the python server for it, yet.
 
@@ -38,3 +38,17 @@ How to Use it?
 * start a chromecast session from the google cast extension
 * select your media, your chromecast will look like it's loading something
 * click play!
+
+
+Notes
+====================================
+Images seem to load on the CastLoadMedia event, rather than waiting to be told to 'play'. So as you click through each
+image, it will load immediately in slideshow -like fashion on the Chromecast.
+
+Right now, things are being logged in the console. If you want a ton of details set this
+
+``` javascript
+
+localcast.logging.verbose = true;
+
+```

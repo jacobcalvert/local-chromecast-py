@@ -24,9 +24,11 @@ class MediaType:
     class Extensions:
         AUDIO = ["mp3", "ogg", "wav"]
         VIDEO = ["mp4", "mkv", "m4v", "avi"]
+        IMAGE = ["jpg", "png", "gif"]
 
     AUDIO = "AUDIO"
     VIDEO = "VIDEO"
+    IMAGE = "IMAGE"
     UNKNOWN = "UNKNOWN"
     DEFAULT_ICONS = {
         AUDIO: "img/audio.png",

@@ -320,6 +320,13 @@ function parseObject(obj)
  			return localcast.media_store.audio[i];
  		}
  	};
+ 	for(i = 0; i < localcast.media_store.image.length; i++)
+ 	{
+ 		if(localcast.media_store.image[i].id === id)
+ 		{
+ 			return localcast.media_store.image[i];
+ 		}
+ 	};
  	return false;
  };
  
