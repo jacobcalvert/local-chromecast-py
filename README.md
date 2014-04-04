@@ -30,8 +30,7 @@ The javascript portion basically handles the talk between the Cast API and the s
 
 
 How to Use it?
-
-===================================
+====================================
 
 1) install Tornado -> http://www.tornadoweb.org/en/stable/
 2) run 'python Server.py'
