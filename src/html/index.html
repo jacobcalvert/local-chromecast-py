@@ -4,16 +4,35 @@
         <link rel="stylesheet" href="css/style.css"></link>
         <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript" src="js/local-chromecast-py.js"></script>
+        <script type="text/javascript" src="js/local-chromecast-py2-ui.js"></script>
+        <script type="text/javascript" src="js/local-chromecast-py2.js"></script>
     </head>
     <body>
-		<div id="container">
+		<div id="control_pane">
+			<div id="selected_media_info">
+				<img id="selected_thumb" src="img/video.png"/>
+				<div id="selected_title">Sample Selected Video Title</div>
+			
+			</div>
+			<div id="controls">
+				<button id="stop">Stop</button>
+				<button id="play">Play</button>
+				
+			</div>
+		
 		</div>
-		<div id="quickmenu">
-			<textarea readonly id="visilog">
-			</textarea>
-			<button id="close_qm">Close Menu</button>
-			<button id="open_qm">Open Menu</button>
+		<div id="media_pane">
+			<div class='media_item' id="uuid1">
+				<img src="img/video.png"/>
+				<div class="media_title">Sample Video Title</div>
+				<div class="media_description">This is a sample video description!</div>
+			</div>
+			<div class='media_item' id="uuid2">
+				<img src="img/audio.png"/>
+				<div class="media_title">Sample Audio Title</div>
+				<div class="media_description">This is a sample audio description!</div>
+			</div>
+			
 		</div>
     </body>
 </html>
