@@ -59,6 +59,7 @@ localcast.ui.on_click_callback = UIMediaItemClicked;
 localcast.ui.play_media_callback = CastMediaPlay;
 localcast.ui.stop_media_callback = CastMediaStop;
 localcast.ui.on_media_store_change = null;
+localcast.ui.on_volume_change_callback = CastSetVolume;
 
 /*
  * WebSocket methods
@@ -178,7 +179,7 @@ function CastSessionListener(session)
 function CastReceiverListener(event)
 {
 	log_str = "";
-	if (event === "available")
+	if (event === chrome.cast.ReceiverAvailability.AVAILABLE)
 	{
 		log_str = "Found receiver(s)";
 	}
@@ -226,7 +227,7 @@ function CastLoadMedia(media_object)
 };
 function CastMediaUpdateListener(event)
 {
-	//TODO
+	log(JSON.stringify(event));
 
 };
 function CastMediaError(event)
@@ -244,6 +245,11 @@ function CastMediaStop(event)
 function CastMediaSuccessfulCommand(event)
 {
 	log(event);
+};
+function CastSetVolume(level)
+{
+	
+  	localcast.sessions.cast_session.setReceiverVolumeLevel((level/100.00), CastMediaSuccessfulCommand.bind(this,"Volume Set Event"), CastMediaError);
 };
 /*
  * UI Hooks

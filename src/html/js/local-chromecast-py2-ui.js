@@ -3,7 +3,15 @@ function rebind_handlers()
 	$(".media_item").click(onMediaItemClick);
 	$("#play").click(onPlayClick);
 	$("#stop").click(onStopClick);
+	$("#volume").change(onVolumeChange);
 }
+function onVolumeChange()
+{
+	level = $(this).val();
+	$("#vol_label").html("Volume ("+level+")");
+	localcast.ui.on_volume_change_callback(level);
+	
+};
 function onMediaItemClick()
 {
 	id = $(this).attr("id");
